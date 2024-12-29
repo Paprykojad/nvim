@@ -7,7 +7,7 @@ vim.keymap.set("n", "<leader>,", "^i") -- skocz na początek linijki
 vim.keymap.set("v", "<leader>,", "^") -- skocz na początek linijki przy zaznaczaniu 
 vim.keymap.set("n", "<leader>t", ":noh\n") -- kasuj zaznaczenia z /
 vim.keymap.set("n", "<leader>n", ":vnew\n") -- nowe puste okno po lewej
-vim.keymap.set("n", "<leader>b", ":bd\n") -- usuwa bufor z tekstem
+-- vim.keymap.set("n", "<leader>b", ":bd\n") -- usuwa bufor z tekstem
 -- vim.keymap.set("i", "<leader>{{", "<C-c>$a{\n\n}<C-c>ki") -- automatyczne zrobienie nawiasów
 vim.keymap.set("n", "<leader>;", "$a;<C-c>") -- wstawienie ; na końcu linijki
 vim.keymap.set("n", "<leader>:", "$a:<C-c>o") -- wstawienie : na końcu linijki

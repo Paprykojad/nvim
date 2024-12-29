@@ -22,6 +22,11 @@ require('code_runner').setup({
       "g++ -o $fileNameWithoutExt $fileName &&",
       "$dir/$fileNameWithoutExt"
     },
+    -- cpp = {
+    --     "cd $dir/build &&",
+    --     "pwd && ls",
+    --     "make"
+    -- },
     c = {
       "cd $dir &&",
       "gcc -o $fileNameWithoutExt $fileName &&",

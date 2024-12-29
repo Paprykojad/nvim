@@ -13,6 +13,8 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
 	{},
+    { "rcarriga/nvim-dap-ui", dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} },
+    "leoluz/nvim-dap-go",
     {'m4xshen/autoclose.nvim'},
     {'xiyaowong/transparent.nvim'},
     -- { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
