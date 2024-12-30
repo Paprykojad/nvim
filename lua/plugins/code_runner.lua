@@ -5,51 +5,32 @@ require('code_runner').setup({
       "javac $fileName &&",
       "java $fileNameWithoutExt"
     },
+    go = "go run .",
     python = "python3 -u",
     typescript = "deno run",
-    javascript = "node",
-    go = {
-        "go run ."
-	-- "go run $dir/$fileName",
-    },
     rust = {
       "cd $dir &&",
       "rustc $fileName &&",
       "$dir/$fileNameWithoutExt"
     },
-    cpp = {
-      "cd $dir &&",
-      "g++ -o $fileNameWithoutExt $fileName &&",
-      "$dir/$fileNameWithoutExt"
-    },
-    -- cpp = {
-    --     "cd $dir/build &&",
-    --     "pwd && ls",
-    --     "make"
-    -- },
-    c = {
-      "cd $dir &&",
-      "gcc -o $fileNameWithoutExt $fileName &&",
-      "$dir/$fileNameWithoutExt"
-    },
-    cs = {
-        "dotnet build && dotnet run"
-    },
-    -- cpp = {
-    --   "cd $dir &&",
-    --   "make $fileNameWithoutExt", 
-    --   "$dir/$fileNameWithoutExt"
-    -- },
-    -- c = {
-    --   "cd $dir &&",
-    --   "make $fileNameWithoutExt", 
-    --   "$dir/$fileNameWithoutExt"
-    -- },
-    html = {"firefox $dir/$fileName"}
-    -- html = {"chromium $dir/$fileName"}
+    c = function(...)
+      c_base = {
+        "cd $dir &&",
+        "gcc $fileName -o",
+        "/tmp/$fileNameWithoutExt",
+      }
+      local c_exec = {
+        "&& /tmp/$fileNameWithoutExt &&",
+        "rm /tmp/$fileNameWithoutExt",
+      }
+      vim.ui.input({ prompt = "Add more args:" }, function(input)
+        c_base[4] = input
+        vim.print(vim.tbl_extend("force", c_base, c_exec))
+        require("code_runner.commands").run_from_fn(vim.list_extend(c_base, c_exec))
+      end)
+    end,
   },
 })
-
 
 vim.keymap.set('n', '<leader>v', ':RunCode<CR>', { noremap = true, silent = false })
 vim.keymap.set('n', '<leader>rf', ':RunFile<CR>', { noremap = true, silent = false })

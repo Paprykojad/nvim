@@ -31,7 +31,11 @@ local plugins = {
         dependencies = { 'nvim-tree/nvim-web-devicons' }
     },
     {'mbbill/undotree'},
-    { "CRAG666/code_runner.nvim", config = true },
+    { "CRAG666/code_runner.nvim", 
+    config = true ,
+    commit = "dcedccbf969a0f3bc00db446172b4966e83101dd",
+    -- commit = "",
+    },
     {
         'nvim-telescope/telescope.nvim',
         branch = '0.1.x',
