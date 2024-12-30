@@ -13,13 +13,18 @@ vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
 	{},
+    {
+        "williamboman/mason.nvim",
+        "mfussenegger/nvim-dap",
+        "jay-babu/mason-nvim-dap.nvim",
+    },
     { "rcarriga/nvim-dap-ui", dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} },
     "leoluz/nvim-dap-go",
     {'m4xshen/autoclose.nvim'},
     {'xiyaowong/transparent.nvim'},
     -- { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-	{"ellisonleao/gruvbox.nvim"},
-	-- {"rebelot/kanagawa.nvim", lazy=false, priority=1000}, -- kolorki
+	-- {"ellisonleao/gruvbox.nvim"},
+	{"rebelot/kanagawa.nvim", lazy=false, priority=1000}, -- kolorki
 	-- {'jacoborus/tender.vim'},
     {
         'nvim-lualine/lualine.nvim',
@@ -27,12 +32,6 @@ local plugins = {
     },
     {'mbbill/undotree'},
     { "CRAG666/code_runner.nvim", config = true },
-    -- {
-    --     'nvim-tree/nvim-tree.lua',
-    --     dependencies = {
-    --         'nvim-tree/nvim-web-devicons', -- optional
-    --     },
-    -- },
     {
         'nvim-telescope/telescope.nvim',
         branch = '0.1.x',

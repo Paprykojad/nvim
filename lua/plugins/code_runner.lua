@@ -9,7 +9,7 @@ require('code_runner').setup({
     typescript = "deno run",
     javascript = "node",
     go = {
-	"go run .",
+        "go run ."
 	-- "go run $dir/$fileName",
     },
     rust = {
@@ -49,6 +49,7 @@ require('code_runner').setup({
     -- html = {"chromium $dir/$fileName"}
   },
 })
+
 
 vim.keymap.set('n', '<leader>v', ':RunCode<CR>', { noremap = true, silent = false })
 vim.keymap.set('n', '<leader>rf', ':RunFile<CR>', { noremap = true, silent = false })
