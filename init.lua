@@ -16,7 +16,7 @@ local plugins = {
     {
         "williamboman/mason.nvim",
         "mfussenegger/nvim-dap",
-        -- "jay-babu/mason-nvim-dap.nvim",
+        "jay-babu/mason-nvim-dap.nvim",
     },
     { "rcarriga/nvim-dap-ui", dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} },
     "leoluz/nvim-dap-go",
@@ -70,7 +70,7 @@ local plugins = {
         dependencies = {
             -- Automatically install LSPs to stdpath for neovim
             { 'williamboman/mason.nvim', config = true },
-            -- 'williamboman/mason-lspconfig.nvim',
+            'williamboman/mason-lspconfig.nvim',
 
             -- Useful status updates for LSP
             -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
