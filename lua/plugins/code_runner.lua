@@ -5,6 +5,10 @@ require('code_runner').setup({
       "javac $fileName &&",
       "java $fileNameWithoutExt"
     },
+    cs = {
+        "dotnet build . &&",
+        "dotnet run ."
+    },
     go = "go run .",
     python = "python3 -u",
     typescript = "deno run",

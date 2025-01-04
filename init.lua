@@ -16,15 +16,16 @@ local plugins = {
     {
         "williamboman/mason.nvim",
         "mfussenegger/nvim-dap",
-        "jay-babu/mason-nvim-dap.nvim",
+        -- "jay-babu/mason-nvim-dap.nvim",
     },
     { "rcarriga/nvim-dap-ui", dependencies = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} },
     "leoluz/nvim-dap-go",
     {'m4xshen/autoclose.nvim'},
     {'xiyaowong/transparent.nvim'},
-    -- { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-	-- {"ellisonleao/gruvbox.nvim"},
-	{"rebelot/kanagawa.nvim", lazy=false, priority=1000}, -- kolorki
+    {"joshdick/onedark.vim"},
+    { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
+	{"ellisonleao/gruvbox.nvim"},
+	-- {"rebelot/kanagawa.nvim", lazy=false, priority=1000}, -- kolorki
 	-- {'jacoborus/tender.vim'},
     {
         'nvim-lualine/lualine.nvim',
@@ -69,7 +70,7 @@ local plugins = {
         dependencies = {
             -- Automatically install LSPs to stdpath for neovim
             { 'williamboman/mason.nvim', config = true },
-            'williamboman/mason-lspconfig.nvim',
+            -- 'williamboman/mason-lspconfig.nvim',
 
             -- Useful status updates for LSP
             -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`

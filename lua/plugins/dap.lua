@@ -1,7 +1,7 @@
-require ('mason-nvim-dap').setup({
-    ensure_installed = {'delve', 'codelldb', 'netcoredbg'},
-    handlers = {}, -- sets up dap in the predefined manner
-})
+-- require ('mason-nvim-dap').setup({
+--     ensure_installed = {'delve', 'codelldb', 'netcoredbg'},
+--     handlers = {}, -- sets up dap in the predefined manner
+-- })
 
 local dap, dapui = require("dap"), require("dapui")
 require("dapui").setup()
@@ -31,3 +31,37 @@ vim.keymap.set('n', '<Leader>b', function() require('dap').toggle_breakpoint() e
 vim.keymap.set('n', '<Leader>lp', function() require('dap').set_breakpoint(nil, nil, vim.fn.input('Log point message: ')) end)
 vim.keymap.set('n', '<Leader>dr', function() require('dap').repl.open() end)
 vim.keymap.set('n', '<Leader>dl', function() require('dap').run_last() end)
+
+
+
+-- dap.adapters.codelldb = {
+--   type = 'server',
+--   port = "${port}",
+--   executable = {
+--     -- command = '/path/to/codelldb', -- Path to your codelldb binary
+--     command = '/home/fg/.local/share/nvim/mason/packages/codelldb/codelldb',
+--     args = { "--port", "${port}" },
+--   },
+-- }
+
+dap.adapters.lldb = {
+    type = 'executable',
+    -- command = '/usr/bin/lldb-vscode', -- adjust as needed, must be absolute path
+    command = '/home/fg/.local/share/nvim/mason/packages/codelldb/codelldb',
+    name = 'lldb'
+}
+
+dap.configurations.cpp = {
+  {
+    name = "Debug",
+    -- type = "codelldb",
+    type = "lldb",
+    request = "launch",
+    program = function()
+      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
+    end,
+    cwd = '${workspaceFolder}/build',  -- Current working directory
+    stopOnEntry = false,
+    args = {},
+  },
+}
