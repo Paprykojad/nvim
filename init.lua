@@ -14,6 +14,17 @@ vim.opt.rtp:prepend(lazypath)
 local plugins = {
 	{},
     {
+        'MagicDuck/grug-far.nvim',
+        config = function()
+            require('grug-far').setup({
+                -- options, see Configuration section below
+                -- there are no required options atm
+                -- engine = 'ripgrep' is default, but 'astgrep' or 'astgrep-rules' can
+                -- be specified
+            });
+        end
+    },
+    {
         "williamboman/mason.nvim",
         "mfussenegger/nvim-dap",
         "jay-babu/mason-nvim-dap.nvim",
@@ -24,8 +35,8 @@ local plugins = {
     {'xiyaowong/transparent.nvim'},
     {"joshdick/onedark.vim"},
     { "catppuccin/nvim", name = "catppuccin", priority = 1000 },
-	{"ellisonleao/gruvbox.nvim"},
-	-- {"rebelot/kanagawa.nvim", lazy=false, priority=1000}, -- kolorki
+	-- {"ellisonleao/gruvbox.nvim"},
+	{"rebelot/kanagawa.nvim", lazy=false, priority=1000}, -- kolorki
 	-- {'jacoborus/tender.vim'},
     {
         'nvim-lualine/lualine.nvim',

@@ -1,4 +1,5 @@
 vim.g.mapleader = " "
+vim.g.maplocalleader = ' '
 
 vim.keymap.set("n", "<leader>pv", vim.cmd.Ex) -- wyjście do netrw
 vim.keymap.set("n", "<leader><leader>", "$a") -- skocz na koniec linijki
@@ -20,6 +21,7 @@ vim.keymap.set("n", "<leader>hj", ":vnew\n:vnew\n<C-w>l") -- stwórz 2 puste okn
 -- vim.keymap.set("n", "<leader>q", ":term\n:q\n") -- szybkie :q
 vim.keymap.set("v", "K", ":m '>-2<CR>gv=gv") -- przesunięcie linijki w dół
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv") -- przesunięcie linijki w górę
+vim.keymap.set("n", "<leader>^", ":GrugFar\n") -- find and replace
 
 vim.api.nvim_set_keymap("n", "gD", "<cmd>lua vim.lsp.buf.declaration()<CR>", { noremap = true, silent = true })
 vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { noremap = true, silent = true })

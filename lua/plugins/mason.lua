@@ -1,8 +1,10 @@
 require('mason').setup()
 require('mason-lspconfig').setup()
+-- require'lspconfig'.glsl_analyzer.setup{}
 
 local servers = {
     clangd = {},
+    -- glsl_analyzer = {},
     gopls = {},
     pyright = {},
     rust_analyzer = {},
