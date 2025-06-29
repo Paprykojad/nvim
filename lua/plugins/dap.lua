@@ -6,6 +6,8 @@ require ('mason-nvim-dap').setup({
 local dap, dapui = require("dap"), require("dapui")
 require("dapui").setup()
 
+-- require('dap.ext.vscode').load_launchjs(nil, { codelldb = { 'c', 'cpp' } })
+
 -- dapui
 dap.listeners.before.attach.dapui_config = function()
     dapui.open()
@@ -33,41 +35,21 @@ vim.keymap.set('n', '<Leader>dr', function() require('dap').repl.open() end)
 vim.keymap.set('n', '<Leader>dl', function() require('dap').run_last() end)
 
 
-
--- dap.adapters.codelldb = {
---   type = 'server',
---   port = "${port}",
---   executable = {
---     -- command = '/path/to/codelldb', -- Path to your codelldb binary
---     command = '/home/fg/.local/share/nvim/mason/packages/codelldb/codelldb',
---     args = { "--port", "${port}" },
---   },
--- }
-
-dap.adapters.lldb = {
-    type = 'executable',
-    -- command = '/usr/bin/lldb-vscode', -- adjust as needed, must be absolute path
+--- C/C++
+dap.adapters.codelldb = {
+  type = 'server',
+  port = '${port}',
+  executable = {
+    -- Adjust this to your mason codelldb path
     command = '/home/fg/.local/share/nvim/mason/packages/codelldb/codelldb',
-    name = 'lldb'
+    args = { '--port', '${port}' },
+  }
 }
 
-dap.configurations.cpp = {
-  {
-    name = "Debug",
-    -- type = "codelldb",
-    type = "lldb",
-    request = "launch",
-    program = function()
-      return vim.fn.input('Path to executable: ', vim.fn.getcwd() .. '/', 'file')
-    end,
-    cwd = '${workspaceFolder}/build',  -- Current working directory
-    stopOnEntry = false,
-    args = {},
-  },
-}
-
-dap.configurations.c = dap.configurations.cpp
-
+require('dap.ext.vscode').load_launchjs(
+  nil,  -- uses ./.vscode/launch.json in cwd
+  { codelldb = { 'c', 'cpp' } }
+)
 
 --- go
 require("dap-go").setup()
