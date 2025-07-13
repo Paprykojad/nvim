@@ -28,3 +28,5 @@ vim.api.nvim_set_keymap("n", "gd", "<cmd>lua vim.lsp.buf.definition()<CR>", { no
 
 vim.keymap.set("n", "[d", vim.diagnostic.goto_prev, {desc  = "GO to previous [D]iagnostic message"})
 vim.keymap.set("n", "]d", vim.diagnostic.goto_next, {desc  = "GO to next [D]iagnostic message"})
+
+vim.keymap.set("n", "rr", ":RenameCurrentCursorField\n")

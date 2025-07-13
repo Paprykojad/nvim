@@ -110,7 +110,9 @@ local plugins = {
     { 'folke/which-key.nvim', opts = {} }, -- pokazuje dostępne skrótu klawiszowe
 	{'numToStr/Comment.nvim', opts={}}, -- komentowanie
 	{'ThePrimeagen/harpoon', dependencies={'nvim-lua/plenary.nvim'}}, -- harpoon
-    {'anuvyklack/pretty-fold.nvim'}
+    {'anuvyklack/pretty-fold.nvim'},
+    {'Paprykojad/renamer.nvim'}
+    -- {'JefferyBoy/renamer.nvim'}
 }
 
 require("lazy").setup(plugins)
